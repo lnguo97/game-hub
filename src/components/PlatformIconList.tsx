@@ -30,14 +30,14 @@ const PlatformIconList = ({ platforms }: Props) => {
     web: BsGlobe,
   };
 
-  const IconSlugs = platforms.map(({ platform }) => {
+  const iconSlugs = platforms.map(({ platform }) => {
     const matches = platform.slug.match(
       "pc|playstation|xbox|nintendo|mac|linux|ios|android|web",
     );
     return matches && matches[0];
   });
 
-  const uniqueIconSlugs = [...new Set(IconSlugs)];
+  const uniqueIconSlugs = [...new Set(iconSlugs)].sort();
 
   return (
     <>
