@@ -13,12 +13,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   return (
     <List>
       {genres.map((genre) => (
-        <ListItem
-          key={genre.id}
-          padding="5px"
-          bgColor={selectedGenre?.id === genre.id ? "gray.600" : "transparent"}
-          borderRadius={8}
-        >
+        <ListItem key={genre.id} paddingY="5px" borderRadius={8}>
           <HStack>
             <Image
               src={getCropedImageUrl(genre.image_background)}
@@ -29,6 +24,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               variant="link"
               fontSize="lg"
               onClick={() => onSelectGenre(genre)}
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
             >
               {genre.name}
             </Button>
